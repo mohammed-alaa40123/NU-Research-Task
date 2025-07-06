@@ -71,34 +71,7 @@ st.markdown("""
         color: white;
     }
     
-    /* Hide Streamlit's default menu and unwanted elements */
-    #MainMenu {
-        visibility: hidden;
-    }
-    
-    /* Hide Streamlit header and footer */
-    header[data-testid="stHeader"] {
-        display: none;
-    }
-    
-    footer {
-        visibility: hidden;
-    }
-    
-    /* Hide the hamburger menu */
-    .css-1rs6os {
-        display: none;
-    }
-    
-    /* Hide deploy button */
-    .css-r698ls {
-        display: none;
-    }
-    
-    /* Ensure main content area is clean */
-    .stApp > header {
-        display: none;
-    }
+
     
 </style>
 """, unsafe_allow_html=True)
