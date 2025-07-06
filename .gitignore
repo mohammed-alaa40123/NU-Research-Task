@@ -4,3 +4,4 @@ src/__pycache__
 src/*.pyc
 .DS_Store
 48 Days Challenge.docx
+app/pages2/__pycache__/
