@@ -1,0 +1,160 @@
+[
+  {
+    "student_id": "STU_001",
+    "student_gpa": 3.41,
+    "student_term": 7,
+    "completed_courses": 26,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "SEC302",
+      "SEC303",
+      "SEC304"
+    ],
+    "is_valid": true,
+    "num_violations": 2,
+    "interest_alignment": 0.8918414936171816,
+    "constraint_score": 0.8
+  },
+  {
+    "student_id": "STU_002",
+    "student_gpa": 2.97,
+    "student_term": 8,
+    "completed_courses": 27,
+    "academic_standing": "Good",
+    "recommendations": [
+      "CS220",
+      "CS311"
+    ],
+    "is_valid": true,
+    "num_violations": 0,
+    "interest_alignment": 0.24797910714374388,
+    "constraint_score": 1.0
+  },
+  {
+    "student_id": "STU_003",
+    "student_gpa": 3.03,
+    "student_term": 8,
+    "completed_courses": 20,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "MATH201",
+      "SE302",
+      "CS220"
+    ],
+    "is_valid": true,
+    "num_violations": 3,
+    "interest_alignment": 0.36113606014811195,
+    "constraint_score": 0.7
+  },
+  {
+    "student_id": "STU_004",
+    "student_gpa": 3.18,
+    "student_term": 5,
+    "completed_courses": 18,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "SE304",
+      "MATH201",
+      "SEC301"
+    ],
+    "is_valid": true,
+    "num_violations": 1,
+    "interest_alignment": 0.536897680735357,
+    "constraint_score": 0.9
+  },
+  {
+    "student_id": "STU_005",
+    "student_gpa": 3.22,
+    "student_term": 4,
+    "completed_courses": 14,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "DS301",
+      "DS304",
+      "SE303"
+    ],
+    "is_valid": true,
+    "num_violations": 2,
+    "interest_alignment": 0.7446062507454975,
+    "constraint_score": 0.8
+  },
+  {
+    "student_id": "STU_006",
+    "student_gpa": 3.38,
+    "student_term": 8,
+    "completed_courses": 29,
+    "academic_standing": "Good",
+    "recommendations": [
+      "CS311",
+      "CS315"
+    ],
+    "is_valid": true,
+    "num_violations": 0,
+    "interest_alignment": 0.10623261323476677,
+    "constraint_score": 1.0
+  },
+  {
+    "student_id": "STU_007",
+    "student_gpa": 3.11,
+    "student_term": 8,
+    "completed_courses": 31,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "SEC303",
+      "CS312",
+      "CS313"
+    ],
+    "is_valid": true,
+    "num_violations": 1,
+    "interest_alignment": 0.5235551814577837,
+    "constraint_score": 0.9
+  },
+  {
+    "student_id": "STU_008",
+    "student_gpa": 2.92,
+    "student_term": 4,
+    "completed_courses": 12,
+    "academic_standing": "Good",
+    "recommendations": [
+      "CS250",
+      "SE303",
+      "SE304"
+    ],
+    "is_valid": true,
+    "num_violations": 1,
+    "interest_alignment": 0.4692512566128877,
+    "constraint_score": 0.9
+  },
+  {
+    "student_id": "STU_009",
+    "student_gpa": 2.81,
+    "student_term": 8,
+    "completed_courses": 27,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "CS402",
+      "MATH201",
+      "DS301"
+    ],
+    "is_valid": true,
+    "num_violations": 2,
+    "interest_alignment": 0.8514053907992823,
+    "constraint_score": 0.8
+  },
+  {
+    "student_id": "STU_010",
+    "student_gpa": 2.81,
+    "student_term": 7,
+    "completed_courses": 19,
+    "academic_standing": "Warning",
+    "recommendations": [
+      "CS301",
+      "CS402",
+      "MATH201"
+    ],
+    "is_valid": true,
+    "num_violations": 4,
+    "interest_alignment": 0.3832940345118181,
+    "constraint_score": 0.6
+  }
+]

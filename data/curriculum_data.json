@@ -1,0 +1,429 @@
+{
+  "nodes": [
+    {
+      "code": "CS101",
+      "name": "Intro to Programming",
+      "credits": 3,
+      "difficulty": "Beginner",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "CS102",
+      "name": "Data Structures",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "CS201",
+      "name": "Algorithms",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Theory"
+    },
+    {
+      "code": "CS210",
+      "name": "Computer Architecture",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Systems"
+    },
+    {
+      "code": "CS220",
+      "name": "Operating Systems",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Systems"
+    },
+    {
+      "code": "CS230",
+      "name": "Database Systems",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Data Science"
+    },
+    {
+      "code": "CS240",
+      "name": "Computer Networks",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Systems"
+    },
+    {
+      "code": "CS250",
+      "name": "Software Engineering",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "MATH101",
+      "name": "Discrete Mathematics",
+      "credits": 3,
+      "difficulty": "Beginner",
+      "domain": "Theory"
+    },
+    {
+      "code": "MATH201",
+      "name": "Linear Algebra",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Theory"
+    },
+    {
+      "code": "MATH202",
+      "name": "Statistics",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Data Science"
+    },
+    {
+      "code": "CS301",
+      "name": "Theory of Computation",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Theory"
+    },
+    {
+      "code": "CS310",
+      "name": "Artificial Intelligence",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "AI"
+    },
+    {
+      "code": "CS311",
+      "name": "Machine Learning",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "AI"
+    },
+    {
+      "code": "CS312",
+      "name": "Deep Learning",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "AI"
+    },
+    {
+      "code": "CS313",
+      "name": "Natural Language Processing",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "AI"
+    },
+    {
+      "code": "CS314",
+      "name": "Computer Vision",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "AI"
+    },
+    {
+      "code": "CS315",
+      "name": "Robotics",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "AI"
+    },
+    {
+      "code": "DS301",
+      "name": "Data Mining",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Data Science"
+    },
+    {
+      "code": "DS302",
+      "name": "Big Data Analytics",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Data Science"
+    },
+    {
+      "code": "DS303",
+      "name": "Data Visualization",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Data Science"
+    },
+    {
+      "code": "DS304",
+      "name": "Statistical Learning",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Data Science"
+    },
+    {
+      "code": "SEC301",
+      "name": "Cybersecurity Fundamentals",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Security"
+    },
+    {
+      "code": "SEC302",
+      "name": "Cryptography",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Security"
+    },
+    {
+      "code": "SEC303",
+      "name": "Network Security",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Security"
+    },
+    {
+      "code": "SEC304",
+      "name": "Ethical Hacking",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Security"
+    },
+    {
+      "code": "SE301",
+      "name": "Advanced Programming",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "SE302",
+      "name": "Web Development",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "SE303",
+      "name": "Mobile Development",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "SE304",
+      "name": "DevOps",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "CS401",
+      "name": "Distributed Systems",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Systems"
+    },
+    {
+      "code": "CS402",
+      "name": "Compiler Design",
+      "credits": 3,
+      "difficulty": "Advanced",
+      "domain": "Theory"
+    },
+    {
+      "code": "CS403",
+      "name": "Game Development",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Software Engineering"
+    },
+    {
+      "code": "CS404",
+      "name": "Human-Computer Interaction",
+      "credits": 3,
+      "difficulty": "Intermediate",
+      "domain": "Software Engineering"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CS101",
+      "target": "CS102",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS101",
+      "target": "CS210",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS102",
+      "target": "CS201",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS102",
+      "target": "CS250",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS102",
+      "target": "CS230",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS102",
+      "target": "DS303",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS102",
+      "target": "SE302",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS102",
+      "target": "CS404",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS201",
+      "target": "CS310",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS201",
+      "target": "CS402",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS210",
+      "target": "CS220",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS210",
+      "target": "CS240",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS220",
+      "target": "CS315",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS220",
+      "target": "SE304",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS220",
+      "target": "CS401",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS230",
+      "target": "DS301",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS230",
+      "target": "DS302",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS240",
+      "target": "SEC301",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS250",
+      "target": "SE301",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH101",
+      "target": "CS201",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH101",
+      "target": "CS301",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH101",
+      "target": "SEC302",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH201",
+      "target": "CS311",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH201",
+      "target": "DS302",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH202",
+      "target": "CS311",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH202",
+      "target": "DS304",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "MATH202",
+      "target": "DS301",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS310",
+      "target": "CS311",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS310",
+      "target": "CS315",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS311",
+      "target": "CS312",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS311",
+      "target": "CS313",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "CS311",
+      "target": "CS314",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "SEC301",
+      "target": "SEC302",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "SEC301",
+      "target": "SEC303",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "SEC301",
+      "target": "SEC304",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "SE302",
+      "target": "SE303",
+      "relationship": "prerequisite"
+    },
+    {
+      "source": "SE302",
+      "target": "CS403",
+      "relationship": "prerequisite"
+    }
+  ]
+}

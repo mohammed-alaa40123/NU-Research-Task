@@ -14,6 +14,8 @@ import random
 import time
 from typing import List, Dict, Any
 import os
+import networkx as nx
+import plotly.graph_objects as go
 
 # Import our modules
 from src.curriculum_graph import CurriculumGraph, create_sample_curriculum
@@ -296,13 +298,183 @@ class CurriculumPlannerSystem:
         if not self.visualizer:
             self.visualizer = create_visualizer(self.curriculum)
         
-        print("Creating curriculum graph visualization...")
+        print("Creating enhanced curriculum graph visualization...")
         try:
-            self.visualizer.plot_curriculum_graph(
-                save_path=os.path.join(self.reports_dir, "curriculum_graph.html"),
-                interactive=True
+            # Create the enhanced top-down hierarchical visualization
+            G = self.curriculum.graph
+            
+            # Calculate course levels for hierarchical layout
+            course_levels = {}
+            topo_order = list(nx.topological_sort(G))
+            for node in topo_order:
+                prereqs = self.curriculum.get_prerequisites(node)
+                if not prereqs:
+                    course_levels[node] = 0  # Starting level
+                else:
+                    max_prereq_level = max(course_levels.get(prereq, 0) for prereq in prereqs)
+                    course_levels[node] = max_prereq_level + 1
+            
+            # Group courses by level
+            max_level = max(course_levels.values())
+            level_nodes = {level: [] for level in range(max_level + 1)}
+            for node, level in course_levels.items():
+                level_nodes[level].append(node)
+            
+            # Create clean top-down layout
+            pos = {}
+            y_spacing = -2.0  # Vertical spacing between levels (negative for top-down)
+            x_spacing = 1.5   # Horizontal spacing between nodes
+            
+            for level, nodes in level_nodes.items():
+                y = level * y_spacing  # Top-down arrangement
+                num_nodes = len(nodes)
+                
+                # Center the nodes horizontally
+                if num_nodes == 1:
+                    x_positions = [0]
+                else:
+                    total_width = (num_nodes - 1) * x_spacing
+                    x_positions = [i * x_spacing - total_width / 2 for i in range(num_nodes)]
+                
+                # Sort nodes by domain for better visual grouping
+                nodes_sorted = sorted(nodes, key=lambda n: self.curriculum.get_course_info(n).get('domain', 'ZZZ'))
+                
+                for i, node in enumerate(nodes_sorted):
+                    pos[node] = (x_positions[i], y)
+            
+            # Prepare node styling
+            node_x, node_y, node_text, node_color, node_size = [], [], [], [], []
+            
+            domain_colors = {
+                'AI': '#E74C3C', 'Security': '#3498DB', 'Data Science': '#9B59B6',
+                'Software Engineering': '#27AE60', 'Systems': '#F39C12', 'Theory': '#E67E22'
+            }
+            
+            for node in G.nodes():
+                x, y = pos[node]
+                node_x.append(x)
+                node_y.append(y)
+                
+                course_info = self.curriculum.get_course_info(node)
+                domain = course_info.get('domain', 'Other')
+                difficulty = course_info.get('difficulty', 'Intermediate')
+                
+                # Clean color scheme
+                node_color.append(domain_colors.get(domain, '#95A5A6'))
+                
+                # Larger sizing to accommodate text
+                size_map = {'Beginner': 55, 'Intermediate': 60, 'Advanced': 65}
+                node_size.append(size_map.get(difficulty, 60))
+                
+                # Clean hover information
+                prereqs = self.curriculum.get_prerequisites(node)
+                level = course_levels.get(node, 0)
+                
+                text = (f"<b>{node}</b><br>"
+                        f"{course_info.get('name', 'Unknown')}<br>"
+                        f"Domain: {domain}<br>"
+                        f"Level: {level}<br>"
+                        f"Prerequisites: {', '.join(prereqs) if prereqs else 'None'}")
+                node_text.append(text)
+            
+            # Create simple edge traces
+            edge_x, edge_y = [], []
+            for edge in G.edges():
+                x0, y0 = pos[edge[0]]
+                x1, y1 = pos[edge[1]]
+                edge_x.extend([x0, x1, None])
+                edge_y.extend([y0, y1, None])
+            
+            # Create the plot
+            fig = go.Figure()
+            
+            # Add clean edges
+            fig.add_trace(go.Scatter(
+                x=edge_x, y=edge_y,
+                mode='lines',
+                line=dict(width=1.5, color='#BDC3C7'),
+                hoverinfo='none',
+                showlegend=False
+            ))
+            
+            # Add nodes
+            fig.add_trace(go.Scatter(
+                x=node_x, y=node_y, 
+                mode='markers+text',
+                marker=dict(
+                    size=node_size, 
+                    color=node_color, 
+                    line=dict(width=2, color='white'),
+                    opacity=0.9
+                ),
+                text=[node for node in G.nodes()], 
+                textposition="middle center",
+                textfont=dict(size=11, color='white', family='Arial Black'), 
+                hovertext=node_text,
+                hoverinfo='text',
+                showlegend=False
+            ))
+            
+            # Add level labels
+            for level in range(max_level + 1):
+                if level_nodes[level]:  # Only add label if level has courses
+                    fig.add_annotation(
+                        x=min(pos[node][0] for node in level_nodes[level]) - 2,
+                        y=level * y_spacing,
+                        text=f"<b>Level {level}</b>",
+                        showarrow=False,
+                        font=dict(size=14, color='#2C3E50'),
+                        xanchor='right'
+                    )
+            
+            # Add domain legend
+            legend_y = max_level * y_spacing - 1
+            legend_x = max(node_x) + 1
+            for i, (domain, color) in enumerate(domain_colors.items()):
+                fig.add_trace(go.Scatter(
+                    x=[legend_x], y=[legend_y - i * 0.3],
+                    mode='markers+text',
+                    marker=dict(size=15, color=color, line=dict(width=1, color='white')),
+                    text=domain,
+                    textposition="middle right",
+                    textfont=dict(size=10, color='#2C3E50'),
+                    hoverinfo='skip',
+                    showlegend=False
+                ))
+            
+            # Update layout
+            fig.update_layout(
+                title=dict(
+                    text="Computer Science Curriculum - Top-Down Hierarchical View",
+                    font=dict(size=20, color='#2C3E50'),
+                    x=0.5
+                ),
+                showlegend=False,
+                hovermode='closest',
+                xaxis=dict(
+                    showgrid=False, 
+                    zeroline=False, 
+                    showticklabels=False,
+                    range=[min(node_x) - 3, max(node_x) + 4]
+                ),
+                yaxis=dict(
+                    showgrid=False, 
+                    zeroline=False, 
+                    showticklabels=False,
+                    range=[min(node_y) - 1, max(node_y) + 1]
+                ),
+                width=1200, 
+                height=800,
+                plot_bgcolor='white',
+                paper_bgcolor='white',
+                margin=dict(l=50, r=200, t=80, b=50)
             )
-            print(f"✓ Curriculum graph saved to {self.reports_dir}/curriculum_graph.html")
+            
+            # Save the enhanced visualization
+            curriculum_path = os.path.join(self.reports_dir, "curriculum_graph.html")
+            fig.write_html(curriculum_path)
+            
+            print(f"✓ Enhanced curriculum graph saved to {curriculum_path}")
         except Exception as e:
             print(f"✗ Failed to create curriculum graph: {e}")
         

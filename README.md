@@ -46,7 +46,7 @@ python main.py --generate-data
 
 ### 2. Train RL Model
 ```bash
-python main.py --train-rl
+python main.py --train-rl --episodes 2000
 ```
 
 ### 3. Generate Recommendations
