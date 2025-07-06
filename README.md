@@ -12,7 +12,7 @@ This project implements an AI-powered academic advising system that uses graph-b
 
 Check out the interactive web application built with Streamlit:
 
-[](https://ai-curriculum-planner.streamlit.app/)
+[https://ai-curriculum-planner.streamlit.app/](https://ai-curriculum-planner.streamlit.app/)
 
 **Note**: The application is running on a community cluster and may take a moment to start up if it has been inactive. Please be patient\!
 
